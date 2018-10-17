@@ -1,0 +1,14 @@
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\MainProject.exe.config
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\MainProject.exe
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\MainProject.pdb
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\Renci.SshNet.dll
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\SshHelper.dll
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\SshHelper.pdb
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\Renci.SshNet.xml
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csprojAssemblyReference.cache
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.Properties.Resources.resources
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csproj.GenerateResource.cache
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csproj.CoreCompileInputs.cache
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csproj.CopyComplete
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.exe
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.pdb
