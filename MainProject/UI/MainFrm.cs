@@ -374,9 +374,9 @@ namespace UI
                     this.pw = frm.Password;
                 }
             }
+
             AddSshUser(e.Client);
             //AddSftpUser(e.Client);
-
             btn_ssh.PerformClick();
         }
 
@@ -456,6 +456,26 @@ namespace UI
                 BackColor = Color.Purple
             };
             return page;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var ips = new string[] { "192.168.152.233", "192.168.152.234", "192.168.152.235" };
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 15; j++)
+                {
+                    var ssh = SSH.SshHelper.ConnectSSH(ips[i], 22, "root", "@@fusiondev01");
+
+                    var client = new Client()
+                    {
+                        SshClient = ssh,
+                    };
+                    var arg = new ConnectionArgs(client);
+                    AddUser(this, arg);
+                }
+            }
         }
     }
 

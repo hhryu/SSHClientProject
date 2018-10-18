@@ -59,7 +59,8 @@ namespace SSH
                     {
                         result.Append(sshCmd.Result);
                         result.Append(sshCmd.Error);
-                        successful = false;
+                        //NOTE: 배치 실패시 중단하려면 주석 해제.
+                        //successful = false;
                     }
                 }
                 catch (Exception e)

@@ -39,7 +39,8 @@ namespace UI
             this.multiPagePanel3 = new System.Windows.Forms.Panel();
             this.btn_exit = new System.Windows.Forms.Button();
             this.pn_top = new System.Windows.Forms.Panel();
-            this.pn_main = new MultiPagePanel();
+            this.pn_main = new MainProject.UI.MultiPagePanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.pn_left.SuspendLayout();
             this.pn_top.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +48,7 @@ namespace UI
             // pn_left
             // 
             this.pn_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(38)))), ((int)(((byte)(59)))));
+            this.pn_left.Controls.Add(this.button1);
             this.pn_left.Controls.Add(this.btn_batch);
             this.pn_left.Controls.Add(this.btn_ssh);
             this.pn_left.Controls.Add(this.btn_connection);
@@ -171,6 +173,16 @@ namespace UI
             this.pn_main.Size = new System.Drawing.Size(781, 589);
             this.pn_main.TabIndex = 16;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(65, 423);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MainFrm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -205,6 +217,7 @@ namespace UI
         private System.Windows.Forms.Panel pn_top;
         private MultiPagePanel pn_main;
         private System.Windows.Forms.Button btn_batch;
+        private System.Windows.Forms.Button button1;
     }
 }
 
