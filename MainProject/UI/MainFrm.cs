@@ -23,7 +23,10 @@ namespace UI
         MultiPagePanel pn_consoles;
         BatchPage pn_batch;
 
-        int count = 0;
+        //int count = 0;
+        string ip;
+        string userName;
+        string pw;
 
         public MainFrm()
         {
@@ -49,7 +52,12 @@ namespace UI
 
         private void btn_connection_Click(object sender, EventArgs e)
         {
-            var frm = new LoginFrm();
+            LoginFrm frm;
+            if(this.ip == null || this.userName == null || this.pw == null)
+                frm = new LoginFrm(false);
+            else
+                frm = new LoginFrm(true, this.ip, this.userName, this.pw);
+
             frm.StartPosition = FormStartPosition.CenterParent;
             frm.SSHConnected += AddUser;
             frm.ShowDialog();
@@ -230,7 +238,7 @@ namespace UI
                 this.pn_batch.AddItem(clients);
 
             ChangeTabHeaderColor(client.TabHeader);
-            count++;
+            //count++;
         }
 
         private void InputCancellation(object sender, KeyEventArgs e)
@@ -357,13 +365,19 @@ namespace UI
 
         private void AddUser(object sender, ConnectionArgs e)
         {
+            if(sender is LoginFrm frm)
+            {
+                if (frm.Remembered)
+                {
+                    this.ip = e.Client.IP;
+                    this.userName = e.Client.SshClient.ConnectionInfo.Username;
+                    this.pw = frm.Password;
+                }
+            }
             AddSshUser(e.Client);
             //AddSftpUser(e.Client);
 
             btn_ssh.PerformClick();
-
-            //if (clients == null)
-            //    clients = new List<Client>();
         }
 
         private void ConsoleInputEvent(object sender, KeyPressEventArgs e)
@@ -378,9 +392,9 @@ namespace UI
                     string input = console.Lines[console.Lines.Length - 1];
 
                     string cmd = input.Substring(console.ID.Length);
-                    string resultMsg = SSH.SshHelper.ExcuteCommand(console.Client.SshClient, cmd);
+                    var (msg, isSuccessful) = SSH.SshHelper.ExcuteCommand(console.Client.SshClient, cmd);
 
-                    console.AppendText($"\n{resultMsg}");
+                    console.AppendText($"\n{msg}");
                     console.AppendText(console.ID);
                     console.MinSelection = console.SelectionStart;
                 }

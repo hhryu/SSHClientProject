@@ -14,10 +14,20 @@ namespace MainProject.UI
     {
         public event EventHandler<ConnectionArgs> SSHConnected;
 
-        public LoginFrm()
+        public bool Remembered { get; set; }
+        public string Password { get; set; }
+
+        public LoginFrm(bool rmb, string ip = null, string userName = null, string pw = null)
         {
             InitializeComponent();
             InitCtrls();
+
+            if(rmb && ip != null && userName != null && pw != null)
+            {
+                this.txt_ip.Text = ip;
+                this.txt_userName.Text = userName;
+                this.txt_pw.Text = pw;
+            }
         }
 
         private void InitCtrls()
@@ -27,7 +37,13 @@ namespace MainProject.UI
             this.txt_port.KeyDown += btn_conn_Click;
             this.txt_userName.KeyDown += btn_conn_Click;
             this.txt_pw.KeyDown += btn_conn_Click;
+            //this.chk_remember.CheckedChanged += (s, e) =>
+            //{
+            //    if (s is CheckBox chk)
+            //        Remembered = chk.Checked;
+            //};
         }
+
 
         private void MoveFrm(object sender, MouseEventArgs e)
         {
@@ -38,10 +54,7 @@ namespace MainProject.UI
             }
         }
 
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        private void btn_exit_Click(object sender, EventArgs e) => this.Close();
 
         private void btn_conn_Click(object sender, EventArgs e)
         {
@@ -84,8 +97,11 @@ namespace MainProject.UI
                 SftpClient = SSH.SshHelper.ConnectSFTP(ip, port, userName, pw),
             };
 
+            this.Remembered = this.chk_remember.Checked;
+            this.Password = this.txt_pw.Text;
+
             var args = new ConnectionArgs(client);
-            SSHConnected?.Invoke(sender, args);
+            SSHConnected?.Invoke(this, args);
             this.Close();
         }
     }

@@ -41,15 +41,17 @@ namespace SSH
         /// </summary>
         /// <param name="client"></param>
         /// <param name="cmd"></param>
-        public static string ExcuteCommand(SshClient client, string cmd)
+        public static (string msg, bool isSuccessful) ExcuteCommand(SshClient client, string cmd)
         {
             SshCommand sshCmd = null;
+            bool successful = true;
+
             StringBuilder result = new StringBuilder();
             {
                 try
                 {
                     sshCmd = client.CreateCommand(cmd);
-                    sshCmd.Execute();
+                    var t = sshCmd.Execute();
 
                     if (string.IsNullOrEmpty(sshCmd.Error))
                         result.Append(sshCmd.Result);
@@ -57,6 +59,7 @@ namespace SSH
                     {
                         result.Append(sshCmd.Result);
                         result.Append(sshCmd.Error);
+                        successful = false;
                     }
                 }
                 catch (Exception e)
@@ -66,11 +69,13 @@ namespace SSH
 
                     if (result.ToString() == "CommandText property is empty.")
                         result.Append("\n");
+
+                    successful = false;
                 }
 
                 sshCmd?.Dispose();
 
-                return result.ToString();
+                return (msg: result.ToString(), isSuccessful: successful);
             }
         }
 

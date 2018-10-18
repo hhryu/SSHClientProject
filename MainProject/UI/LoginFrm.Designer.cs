@@ -31,10 +31,10 @@
             this.pn_top = new System.Windows.Forms.Panel();
             this.btn_exit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_pw = new UI.UnderLineTextBox();
-            this.txt_userName = new UI.UnderLineTextBox();
-            this.txt_port = new UI.UnderLineTextBox();
-            this.txt_ip = new UI.UnderLineTextBox();
+            this.txt_pw = new MainProject.UI.UnderLineTextBox();
+            this.txt_userName = new MainProject.UI.UnderLineTextBox();
+            this.txt_port = new MainProject.UI.UnderLineTextBox();
+            this.txt_ip = new MainProject.UI.UnderLineTextBox();
             this.chk_remember = new System.Windows.Forms.CheckBox();
             this.btn_conn = new System.Windows.Forms.Button();
             this.pn_top.SuspendLayout();
@@ -117,6 +117,7 @@
             this.txt_port.Name = "txt_port";
             this.txt_port.Size = new System.Drawing.Size(80, 27);
             this.txt_port.TabIndex = 12;
+            this.txt_port.Text = "22";
             this.txt_port.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_port.Watermark = "Port";
             // 

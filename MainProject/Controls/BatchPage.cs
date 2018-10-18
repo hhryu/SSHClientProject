@@ -228,6 +228,8 @@ namespace MainProject.Controls
 
         private void btn_start_Click(object sender, EventArgs e)
         {
+            successCount = failureCount = 0;
+
             if (!batchEnabled || this.gv_ips.Rows.Count < 1)
                 return;
 
@@ -255,14 +257,19 @@ namespace MainProject.Controls
                                 string cmd = sr.ReadLine();
                                 this.WriteString(client, cmd, false);
 
-                                string resultMsg = string.Empty;
+                                var (msg, isSuccessful) = SSH.SshHelper.ExcuteCommand(client.SshClient, cmd);
 
-                                resultMsg = SSH.SshHelper.ExcuteCommand(client.SshClient, cmd);
-                                this.WriteString(client, resultMsg, true);
+                                this.WriteString(client, msg, true);
+                                if (!isSuccessful)
+                                    this.CancelTask(client.ID);
 
                                 if (token.IsCancellationRequested)
                                 {
-                                    this.WriteString(client, "^C", true);
+                                    if(isSuccessful)
+                                        this.WriteString(client, "^C", true);
+                                    else
+                                        this.WriteString(client, "배치 작업 실패!", true);
+
                                     this.IncreaseCount(false);
                                     return;
                                 }

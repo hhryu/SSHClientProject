@@ -12,3 +12,6 @@ C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csproj.C
 C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.csproj.CopyComplete
 C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.exe
 C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.pdb
+C:\Users\hhryu\source\repos\SSHClient\MainProject\obj\Debug\MainProject.UI.LoginFrm.resources
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\System.ValueTuple.dll
+C:\Users\hhryu\source\repos\SSHClient\MainProject\bin\Debug\System.ValueTuple.xml

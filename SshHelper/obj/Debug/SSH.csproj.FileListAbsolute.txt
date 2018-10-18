@@ -15,3 +15,6 @@ C:\Users\hhryu\source\repos\SSHClient\SshHelper\obj\Debug\SSH.csproj.CoreCompile
 C:\Users\hhryu\source\repos\SSHClient\SshHelper\obj\Debug\SSH.csproj.CopyComplete
 C:\Users\hhryu\source\repos\SSHClient\SshHelper\obj\Debug\SshHelper.dll
 C:\Users\hhryu\source\repos\SSHClient\SshHelper\obj\Debug\SshHelper.pdb
+C:\Users\hhryu\source\repos\SSHClient\SshHelper\bin\Debug\System.ValueTuple.dll
+C:\Users\hhryu\source\repos\SSHClient\SshHelper\bin\Debug\System.ValueTuple.xml
+C:\Users\hhryu\source\repos\SSHClient\SshHelper\obj\Debug\SSH.csprojAssemblyReference.cache
